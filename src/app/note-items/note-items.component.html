@@ -1,0 +1,33 @@
+<div class="container p-3 my-3 bg-success text-white">
+  <form>
+    <div class="form-group">
+      <label for="inputName">Author:</label>
+      <input type="text" class="form-control" id="inputName" placeholder="Enter name" required value="{{noteAuthor}}">
+    </div>
+    <div class="form-group">
+      <label for="inputTitle">Title:</label>
+      <input type="text" class="form-control" id="inputTitle" placeholder="Enter title" required value="{{noteTitle}}">
+    </div>
+    <div class="form-group">
+      <label for="inputMessage">Message:</label>
+      <textarea class="form-control" id="inputMessage" required placeholder="Enter message"></textarea>
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-warning">Submit</button>
+  </form>
+</div>
+<h4 class="text-center">All notes</h4>
+<div class="container">
+  <label for="search">Search</label>
+  <input type="search" class="form-control" id="search" placeholder="Enter title" [(ngModel)]="searchText">
+</div>
+
+<app-note-details *ngIf="selectedNote" [note]="selectedNote"></app-note-details>
+
+<div *ngFor="let note of (notes | searchNote: searchText)" (click)="showNote($event, note)">
+  <app-single-note-item [note]="note"></app-single-note-item>
+</div>
+

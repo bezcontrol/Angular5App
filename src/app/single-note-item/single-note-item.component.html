@@ -1,0 +1,8 @@
+<div class="container p-3 my-3 text-white" [style.backgroundColor]="note.highlight ? '#727272' : '#343a40'">
+  <label for="noteAuthor">Author:</label>
+  <p id="noteAuthor">{{note.author}}</p>
+  <div class="container p-3 my-3 border">
+    <label for="noteTitle">Title:</label>
+    <h5 id="noteTitle">{{note.title}}</h5>
+  </div>
+</div>
